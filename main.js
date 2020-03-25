@@ -1,9 +1,9 @@
-var questions = {
-    question: "What is 2*5?",
-    choices: [1, 2, 2,1,1],
-    options:["step1","step2","step3","step4","step5"],
-    maxMarks: 6
-  }
+// var template = {
+//     question: "What is 2*5?",
+//     choices: [1, 2, 2,1,1],
+//     options:["step1","step2","step3","step4","step5"],
+//     maxMarks: 6
+//   }
   var table=$("#gtable");
   var selections = [];
     // Display initial question
@@ -43,6 +43,7 @@ var gradeSheet = new function () {
         // An array of JSON objects with values.
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
+        var qid=0;
         var url='https://gordian-note.herokuapp.com/ms';
         $.ajax({
             url: url,
@@ -51,8 +52,9 @@ var gradeSheet = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
-                
-                data[0].gstring.forEach(element => {
+                $('#questiont').text(data[qid].name);
+                $('#questiond').text("Max Marks : "+data[qid].weight);               
+                data[qid].gstring.forEach(element => {
                     gradeSheet.header.push(element);
                 });
                 gradeSheet.createTable();
