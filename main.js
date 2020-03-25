@@ -44,10 +44,6 @@ var gradeSheet = new function () {
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
         var url='http://127.0.0.1:3000/ms';
-        // $.get(url,  // url 
-        // function (data, textStatus, jqXHR) {  // success callback
-        //   alert('status: ' + textStatus + ', data:' + data);
-        // });
         $.ajax({
             url: url,
             dataType: "json",
@@ -58,13 +54,7 @@ var gradeSheet = new function () {
                 console.log(data);
               }
           });
-        // const APIURL = "http://localhost:3000";
-        // const getquestions = async () => {
-        // const res = await fetch(`${APIURL}/ms`);
-        // this.header=res.json();
-        // this.createTable();
-        // };
-        // getquestions();
+
         
         this.createTable = function () {
             for (var i = 0; i < this.header.length; i++) {
