@@ -51,8 +51,9 @@ var gradeSheet = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
-                data.forEach(element => {
-                    gradeSheet.header.push(element.gstring);
+                
+                data[0].gstring.forEach(element => {
+                    gradeSheet.header.push(element);
                 });
                 gradeSheet.createTable();
               }
