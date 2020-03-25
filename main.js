@@ -54,8 +54,8 @@ var gradeSheet = new function () {
             type:'GET',
             crossDomain:true,
             contentType:"application/json",
-            success:function (data, textStatus) {  // success callback
-                alert('status: ' + textStatus + ', data:' + data);
+            success:function (data) { 
+                console.log(data);
               }
           });
         // const APIURL = "http://localhost:3000";
