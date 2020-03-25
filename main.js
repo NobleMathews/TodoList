@@ -43,7 +43,7 @@ var gradeSheet = new function () {
         // An array of JSON objects with values.
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
-        var url='http://127.0.0.1:3000/ms';
+        var url='https://gordian-note.herokuapp.com/ms';
         $.ajax({
             url: url,
             dataType: "json",
