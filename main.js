@@ -107,8 +107,6 @@ var gradeSheet = new function () {
                     
                 }
             }
-            console.log(this.header);
-
             tr = table.insertRow(-1);           // Create the last row.
 
             for (var j = 0; j < this.col.length; j++) {
