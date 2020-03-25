@@ -40,7 +40,7 @@ var qid=0;
            
         });
         table.fadeIn(function(){
-            gradeSheet();
+            gradeSheet.createTable();
         })
       }
 
@@ -49,24 +49,27 @@ var gradeSheet = new function () {
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
         var url='https://gordian-note.herokuapp.com/ms';
-        $.ajax({
-            url: url,
-            dataType: "json",
-            type:'GET',
-            crossDomain:true,
-            contentType:"application/json",
-            success:function (data) {
-                $('#questiont').text("Question : "+data[qid].name);
-                $('#questiond').text("Max Marks : "+data[qid].weight);               
-                data[qid].gstring.forEach(element => {
-                    gradeSheet.header.push(element);
-                });
-                gradeSheet.createTable();
-              }
-          });
 
+        //ajax call was here before
         
         this.createTable = function () {
+
+            $.ajax({
+                url: url,
+                dataType: "json",
+                type:'GET',
+                crossDomain:true,
+                contentType:"application/json",
+                success:function (data) {
+                    $('#questiont').text("Question : "+data[qid].name);
+                    $('#questiond').text("Max Marks : "+data[qid].weight);               
+                    data[qid].gstring.forEach(element => {
+                        gradeSheet.header.push(element);
+                    });
+                    gradeSheet.createTable();
+                  }
+              });
+
             for (var i = 0; i < this.header.length; i++) {
                 for (var key in this.header[i]) {
                     if (this.col.indexOf(key) === -1) {
