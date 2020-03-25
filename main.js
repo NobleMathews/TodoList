@@ -8,7 +8,7 @@ var qid=0;
   var table=$("#gtable");
   var selections = [];
     // Display initial question
-    // displayNext();
+    gradeSheet.ajaxxer();
     $('#submit').on('click', function (e) {
         e.preventDefault();
         
@@ -46,7 +46,7 @@ var qid=0;
 
 var gradeSheet = new function () {
         // An array of JSON objects with values.
-        this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
+        this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}];
         this.col = [];
         var url='https://gordian-note.herokuapp.com/ms';
 
@@ -58,6 +58,7 @@ var gradeSheet = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
+                gradeSheet.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}];
                 $('#questiont').text("Question : "+data[qid].name);
                 $('#questiond').text("Max Marks : "+data[qid].weight);               
                 data[qid].gstring.forEach(element => {
