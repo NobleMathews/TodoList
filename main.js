@@ -49,7 +49,6 @@ var gradeSheet = new function () {
         // });
         $.ajax({
             url: 'http://127.0.0.1:3000/ms',
-            data: data,
             success:function (data, textStatus, jqXHR) {  // success callback
                 alert('status: ' + textStatus + ', data:' + data);
               },
