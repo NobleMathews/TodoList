@@ -4,7 +4,8 @@
 //     options:["step1","step2","step3","step4","step5"],
 //     maxMarks: 6
 //   }
-  var table=$("#gtable");
+var qid=0;
+  var table=$("#mtable");
   var selections = [];
     // Display initial question
     // displayNext();
@@ -20,8 +21,10 @@
             alert('Please make a selection!');
           } else {
             //when is dealing with current student over ??
-            displayNext();
+            // move displaynext in but correct selections for it
           }
+
+          displayNext();
         });
 
           // Animates buttons on hover
@@ -34,8 +37,9 @@
 
     function displayNext() {
         table.fadeOut(function() {
-          $('#question').remove();
-
+          $('#mtable').remove();
+           qid++;                           /// make more dynamic later as quesry question number of the photo which has been sent 
+           gradeSheet();
         });
       }
 
@@ -43,7 +47,6 @@ var gradeSheet = new function () {
         // An array of JSON objects with values.
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
-        var qid=0;
         var url='https://gordian-note.herokuapp.com/ms';
         $.ajax({
             url: url,
