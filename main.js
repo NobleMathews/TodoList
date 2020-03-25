@@ -51,7 +51,10 @@ var gradeSheet = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) { 
-                console.log(data);
+                data.array.forEach(element => {
+                    this.header.push(element);
+                });
+                this.createTable();
               }
           });
 
