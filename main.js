@@ -5,7 +5,7 @@
 //     maxMarks: 6
 //   }
 var qid=0;
-  var table=$("#mtable");
+  var table=$("#gtable");
   var selections = [];
     // Display initial question
     // displayNext();
@@ -26,8 +26,6 @@ var qid=0;
 
           displayNext();
         });
-
-          // Animates buttons on hover
     $('.button').on('mouseenter', function () {
         $(this).addClass('active');
     });
@@ -39,8 +37,11 @@ var qid=0;
         table.fadeOut(function() {
           $('#mtable').remove();
            qid++;                           /// make more dynamic later as quesry question number of the photo which has been sent 
-           gradeSheet();
+           
         });
+        table.fadeIn(function(){
+            gradeSheet.createTable();
+        })
       }
 
 var gradeSheet = new function () {
