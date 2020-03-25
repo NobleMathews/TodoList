@@ -44,6 +44,7 @@ var gradeSheet = new function () {
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
         var url='http://127.0.0.1:3000/ms';
+        var emp=[];
         $.ajax({
             url: url,
             dataType: "json",
@@ -51,9 +52,9 @@ var gradeSheet = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
-                console.log(this.header);
+                console.log(gradeSheet.header);
                 data.forEach(element => {
-                    this.header.push(element);
+                    gradeSheet.header.push(element);
                 });
                 this.createTable();
               }
