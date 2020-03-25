@@ -13,7 +13,7 @@ body {
   font-family: "Lato", sans-serif;
 }
 h5{
-  padding: 30px;
+  padding: 10px;
 }
 .student-res {
   position: relative;
@@ -26,16 +26,11 @@ h5{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* max-width: -webkit-max-content;
-    max-width: -moz-max-content;
-    max-width: max-content; */
     background-image: url('placeholder.png');
     background-size: cover;
 background-position:center;
 background-repeat:no-repeat;
     padding: 5%;
-    /* left: 50%;
-    margin-left: -45%;  */
   }
 .res-container img {
     display: block;
@@ -60,21 +55,6 @@ background-repeat:no-repeat;
 .header h2 {
   margin-top: 10px;
   font-weight: 300;
-}
-
-.address, .email, .phone {
-  text-align: center;
-  padding: 20px 0;
-  color: #444;
-}
-.address h3, .email h3, .phone h3 {
-  font-size: 1rem;
-  font-weight: 300;
-}
-.address i, .email i, .phone i {
-  color: #F8B7D8;
-  font-size: 1.7rem;
-  margin-bottom: 20px;
 }
 
 form {
@@ -127,8 +107,6 @@ form button {
 .grade-form {
   padding-bottom: 40px;
 }
-
-/* Layout Stuff */
 body {
   background: url("seam.jpg");
   height: 100vh;
@@ -145,9 +123,9 @@ body {
   height: 90%;
   max-height: 90vh;
   display: grid;
-  grid-template-columns: 6fr 1fr 1fr 1fr;
-  grid-template-rows: 0.5fr 2fr;
-  grid-template-areas: "contact-us header header header" "contact-us contact-form contact-form contact-form";
+  grid-template-columns: 6fr 3fr;
+  grid-template-rows: 0.5fr 0.2fr 0.2fr 1.6fr;
+  grid-template-areas: "contact-us header" "contact-us questiont" "contact-us questiond" "contact-us contact-form ";
 }
 
 .student-res {
@@ -158,17 +136,14 @@ body {
   grid-area: header;
 }
 
-.address {
-  grid-area: address;
+.questiont {
+  grid-area: questiont;
 }
 
-.phone {
-  grid-area: phone;
+.questiond {
+  grid-area: questiond;
 }
 
-.email {
-  grid-area: email;
-}
 
 .grade-form {
   grid-area: contact-form;
