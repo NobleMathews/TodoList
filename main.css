@@ -1,0 +1,219 @@
+body {
+    overflow:hidden;
+}
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.marking-form-container {
+  background: #F4F3F3;
+  font-family: "Lato", sans-serif;
+}
+h5{
+  padding: 30px;
+}
+.student-res {
+  position: relative;
+  width: 100%;
+  background: #4d4d4d;
+  overflow: hidden;
+}
+.res-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* max-width: -webkit-max-content;
+    max-width: -moz-max-content;
+    max-width: max-content; */
+    background-image: url('placeholder.png');
+    background-size: cover;
+background-position:center;
+background-repeat:no-repeat;
+    padding: 5%;
+    /* left: 50%;
+    margin-left: -45%;  */
+  }
+.res-container img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width:auto;
+    height: auto;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+.header {
+  text-align: center;
+  padding: 20px 0;
+  color: #444;
+}
+.header h1 {
+  font-weight: normal;
+}
+.header h2 {
+  margin-top: 10px;
+  font-weight: 300;
+}
+
+.address, .email, .phone {
+  text-align: center;
+  padding: 20px 0;
+  color: #444;
+}
+.address h3, .email h3, .phone h3 {
+  font-size: 1rem;
+  font-weight: 300;
+}
+.address i, .email i, .phone i {
+  color: #F8B7D8;
+  font-size: 1.7rem;
+  margin-bottom: 20px;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+form input, form textarea {
+  background: white;
+  display: block;
+  /* margin: 20px auto; */
+  width: 100%;
+  border: 0;
+}
+form input {
+  height: 20px;
+  line-height: 20px;
+  outline: 0;
+  border-bottom: 1px solid rgba(68, 68, 68, 0.3);
+  font-size: 0.8rem;
+  color: rgba(68, 68, 68, 0.8);
+}
+form textarea {
+  border-bottom: 1px solid rgba(68, 68, 68, 0.3);
+  resize: none;
+  outline: none;
+  font-size: 1rem;
+  font-family: lato;
+  color: rgba(68, 68, 68, 0.8);
+}
+form button {
+  position: absolute;
+  display: block;
+  height: 40px;
+  width: 150px;
+  left: calc(50% - 75px);
+  border: 0;
+  border-radius: 20px;
+  bottom: -20px;
+  background: #9ED8EB;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 300;
+  outline: none;
+}
+
+.grade-form {
+  padding-bottom: 40px;
+}
+
+/* Layout Stuff */
+body {
+  background: url("seam.jpg");
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-repeat: repeat;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+
+.marking-form-container {
+  width: 90%;
+  height: 90%;
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr 1fr;
+  grid-template-rows: 0.5fr 2fr;
+  grid-template-areas: "contact-us header header header" "contact-us contact-form contact-form contact-form";
+}
+
+.student-res {
+  grid-area: contact-us;
+}
+
+.header {
+  grid-area: header;
+}
+
+.address {
+  grid-area: address;
+}
+
+.phone {
+  grid-area: phone;
+}
+
+.email {
+  grid-area: email;
+}
+
+.grade-form {
+  grid-area: contact-form;
+  overflow: scroll;
+  height: 100%;
+  max-height: 100%;
+}
+
+.button {
+  position: absolute;
+  display: block;
+  height: 40px;
+  width: 150px;
+  left: calc(50% - 75px);
+  border: 0;
+  border-radius: 20px;
+  bottom: -25px;
+  background: #000;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 300;
+  outline: none;
+}
+
+.button.active {
+  position: absolute;
+  display: block;
+  height: 40px;
+  width: 150px;
+  left: calc(50% - 75px);
+  border: 0;
+  border-radius: 20px;
+  bottom: -20px;
+  font-size: 1.1rem;
+  font-weight: 300;
+  outline: none;
+  background-color: #fff;
+  color: #000;
+}
+thead {color:green;}
+tbody {color:blue;}
+table, th, td {
+ border: 1px solid black;
+}
+td, th{
+ padding: 5px;
+}
+
