@@ -8,7 +8,6 @@ var qid=0;
   var table=$("#gtable");
   var selections = [];
     // Display initial question
-    gradeSheet.ajaxxer();
     $('#submit').on('click', function (e) {
         e.preventDefault();
         
@@ -197,3 +196,4 @@ var gradeSheet = new function () {
     }
 
     gradeSheet.createTable();
+    gradeSheet.ajaxxer();
