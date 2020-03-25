@@ -66,7 +66,7 @@ var gradeSheet = new function () {
                     data[qid].gstring.forEach(element => {
                         gradeSheet.header.push(element);
                     });
-                    gradeSheet.createTable();
+                    // gradeSheet.createTable();
                   }
               });
 
