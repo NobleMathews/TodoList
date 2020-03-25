@@ -17,12 +17,12 @@ var qid=0;
           return false;
         }
 
-        if (selections.length<=1) {
-            alert('Please make a selection!');
-          } else {
-            //when is dealing with current student over ??
-            // move displaynext in but correct selections for it
-          }
+        // if (selections.length<=1) {
+        //     alert('Please make a selection!');
+        //   } else {
+        //     //when is dealing with current student over ??
+        //     // move displaynext in but correct selections for it
+        //   }
 
           displayNext();
         });
@@ -36,11 +36,11 @@ var qid=0;
     function displayNext() {
         table.fadeOut(function() {
           $('#mtable').remove();
-           qid++;                           /// make more dynamic later as quesry question number of the photo which has been sent 
+           qid=qid+1;                           /// make more dynamic later as quesry question number of the photo which has been sent 
            
         });
         table.fadeIn(function(){
-            gradeSheet.createTable();
+            gradeSheet();
         })
       }
 
