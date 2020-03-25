@@ -52,7 +52,7 @@ var gradeSheet = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
-                $('#questiont').text("Question : \n"+data[qid].name);
+                $('#questiont').text("Question : "+data[qid].name);
                 $('#questiond').text("Max Marks : "+data[qid].weight);               
                 data[qid].gstring.forEach(element => {
                     gradeSheet.header.push(element);
