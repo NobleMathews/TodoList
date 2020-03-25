@@ -43,10 +43,18 @@ var gradeSheet = new function () {
         // An array of JSON objects with values.
         this.header = [{ 'Marks': '', 'Comments': '', 'Check form': ''}]
         this.col = [];
-        $.get('http://127.0.0.1:3000/ms',  // url
-        function (data, textStatus, jqXHR) {  // success callback
-          alert('status: ' + textStatus + ', data:' + data);
-        });
+        // $.get('http://127.0.0.1:3000/ms',  // url
+        // function (data, textStatus, jqXHR) {  // success callback
+        //   alert('status: ' + textStatus + ', data:' + data);
+        // });
+        $.ajax({
+            url: 'http://127.0.0.1:3000/ms',
+            data: data,
+            success:function (data, textStatus, jqXHR) {  // success callback
+                alert('status: ' + textStatus + ', data:' + data);
+              },
+            dataType: JSON
+          });
         // const APIURL = "http://localhost:3000";
         // const getquestions = async () => {
         // const res = await fetch(`${APIURL}/ms`);
