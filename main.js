@@ -92,7 +92,7 @@ var gradeSheet = new function () {
                     var tabCell = tr.insertCell(-1);
                     tabCell.innerHTML = this.header[i][this.col[j]];
                     if(j==2){
-                      if(String(this.header[i][this.col[j]])!="N.A."){
+                      if(String(this.header[i][this.col[j]])=="N.A."){
                         tabCell.innerHTML ='<input type="checkbox" value="yes" checked="true" id="isGraded3">'
                       }
                       else
