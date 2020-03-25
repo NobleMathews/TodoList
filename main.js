@@ -151,7 +151,7 @@ var gradeSheet = new function () {
             obj[this.col[0]] = '';
 
             // Add new values to header array.
-            for (i = 1; i < this.col.length; i++) {
+            for (i = 0; i < this.col.length; i++) {
 
                 var td = tab.getElementsByTagName("td")[i];
                 if (td.childNodes[0].getAttribute('type') == 'text' || 
