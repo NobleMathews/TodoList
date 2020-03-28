@@ -147,7 +147,7 @@ this.ajaxxer = function () {
           className: "full-extent" }),
     
         React.createElement("div", { className: "sidebar" },
-        React.createElement("h3", null, "List of Services"),
+        React.createElement("h3", null, "Options Panel"),
         React.createElement("div", { className: "panel__data" },
         // React.createElement("label", null,
         // React.createElement("strong", null, "Service 1"),
@@ -159,7 +159,7 @@ this.ajaxxer = function () {
         React.createElement("span", null),
     
         React.createElement("label", null,
-        React.createElement("strong", null, "Loader"),
+        React.createElement("strong", null, "Click to Reload Data"),
         React.createElement("input", {
           type: "checkbox",
           checked: state["Click to Reload Data"],
@@ -214,7 +214,7 @@ this.ajaxxer = function () {
         React.createElement("span", null), " Deceased (", filteredDeceased.length, ")"),
     
         React.createElement("div", { className: "panel__legend__bookings" },
-        React.createElement("span", null), " Deceased (", filteredBookings.length, ")"))),
+        React.createElement("span", null), " Recovered (", filteredBookings.length, ")"))),
     
     
     
