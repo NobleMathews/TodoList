@@ -55,7 +55,7 @@ body {
     position: relative;
     margin: 0 auto;
     width: 100%;
-    height: 80%;
+    height: 90%;
     max-height: 8   0%;
     background-color: #fff;
   }
@@ -72,6 +72,11 @@ body {
   .marker_supplier {
     background: #ff5722;
   }
+
+  .marker_dead {
+    background: grey;
+  }
+  
   .marker_cluster_wrapper {
     display: flex;
     border: 2px solid #fff;
