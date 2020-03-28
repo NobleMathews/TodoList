@@ -100,7 +100,7 @@ this.ajaxxer = function () {
     };
     
     const initialState = {
-      "Service 1": true,
+      "Kerala": true,
       "Service 2": true,
       "Service 3": true,
       "Service 4": true,
