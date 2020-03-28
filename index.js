@@ -43,6 +43,8 @@ var getter = new function () {
                 
               }
           });
+          App(); 
+
         }
     this.stater=function(state){
       switch(state){
@@ -162,7 +164,6 @@ var getter = new function () {
           break;
       }
     } 
-    App(); 
 }
 getter.ajaxxer();
 const { Map: LeafletMap, MapLayer, withLeaflet, TileLayer, Marker, Popup } = ReactLeaflet;
