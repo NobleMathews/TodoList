@@ -121,11 +121,11 @@ this.ajaxxer = function () {
       [36.942157, 64.855667],
       [7.843725, 98.254375]];
     
-      const filteredBookings = dead.filter(booking => state[booking.service]);
-      const filteredSuppliers = active.filter(
-      supplier => state[supplier.service]);
-      filteredBookings = dead;
-      filteredSuppliers = active;
+      // const filteredBookings = dead.filter(booking => state[booking.service]);
+      // const filteredSuppliers = active.filter(
+      // supplier => state[supplier.service]);
+      const filteredBookings = dead;
+      const filteredSuppliers = active;
     
       return (
         React.createElement("div", { className: "panel" },
@@ -207,13 +207,13 @@ this.ajaxxer = function () {
         React.createElement("h3", null, "Legend"),
         React.createElement("div", { className: "panel__legend" },
         React.createElement("div", { className: "panel__legend__suppliers" },
-        React.createElement("span", null), " Suppliers (", filteredSuppliers.length, ")"),
+        React.createElement("span", null), " Active (", filteredSuppliers.length, ")"),
     
         // React.createElement("div", { className: "panel__legend__deceased" },
         // React.createElement("span", null), " Deceased (", filteredDeceased.length, ")"),
     
         React.createElement("div", { className: "panel__legend__bookings" },
-        React.createElement("span", null), " Bookings (", filteredBookings.length, ")"))),
+        React.createElement("span", null), " Deceased (", filteredBookings.length, ")"))),
     
     
     
