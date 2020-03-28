@@ -1,10 +1,17 @@
 var getter = new function () {
-    var url ="https://cors-anywhere.herokuapp.com/https://api.covid19india.org/state_district_wise.json"
+  
+    var url ="https://api.covid19india.org/state_district_wise.json"  
+    const proxyurl = "https://sheltered-tundra-26605.herokuapp.com/";
+
+    // fetch(proxyurl + url) // https://cors-anywhere.herokuapp.com/https://example.com
+    // .then(response => response.text())
+    // .then(contents => console.log(contents))
+    // .catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
 
     this.ajaxxer = function () {
         this.header=[];
         $.ajax({
-            url: url,
+            url: proxyurl + url,
             dataType: "json",
             type:'GET',
             crossDomain:true,
