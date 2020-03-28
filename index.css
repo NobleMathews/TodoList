@@ -164,10 +164,10 @@ body {
     height: 13px;
     margin-right: 5px;
   }
-  .panel__legend__active span {
+  .panel__legend__actives span {
     background: #ff5722;
   }
-  .panel__legend__recovered span {
+  .panel__legend__recs span {
     background: yellowgreen;
   }
   .panel__legend__deceased span {
@@ -188,7 +188,8 @@ body {
   }
   .panel__data strong {
     font-weight: bolder;
-    font-size: 11px;
+    font-size: 33px;
+    margin: 15px;
     font-family: sans-serif;
     color: #444;
   }
