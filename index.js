@@ -17,11 +17,9 @@ var getter = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
-                              
-                data[qid].gstring.forEach(element => {
                     // getter.header.push(element);
                     console.log(element);
-                });
+                
               }
           });
         }  
