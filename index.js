@@ -1,5 +1,5 @@
 var getter = new function () {
-    var url ="https://api.covid19india.org/state_district_wise.json"
+    var url ="https://cors-anywhere.herokuapp.com/https://api.covid19india.org/state_district_wise.json"
 
     this.ajaxxer = function () {
         this.header=[];
