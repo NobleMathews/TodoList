@@ -124,8 +124,9 @@ this.ajaxxer = function () {
       // const filteredBookings = dead.filter(booking => state[booking.service]);
       // const filteredSuppliers = active.filter(
       // supplier => state[supplier.service]);
-      const filteredBookings = dead;
+      const filteredBookings = recover;
       const filteredSuppliers = active;
+      const filteredDeceased = dead;
     
       return (
         React.createElement("div", { className: "panel" },
@@ -155,14 +156,14 @@ this.ajaxxer = function () {
         //   checked: state["Service 1"],
         //   onChange: e => dispatch({ type: 1, value: e.target.checked }) }),
     
-        React.createElement("span", null)),
+        React.createElement("span", null),
     
         React.createElement("label", null,
-        React.createElement("strong", null, "Service 2"),
+        React.createElement("strong", null, "Loader"),
         React.createElement("input", {
           type: "checkbox",
-          checked: state["Service 2"],
-          onChange: e => dispatch({ type: 2, value: e.target.checked }) }),
+          checked: state["Click to Reload Data"],
+          onChange: e => dispatch({ type: 2, value: e.target.checked }) }) ),
     
         // React.createElement("span", null)),
     
@@ -209,8 +210,8 @@ this.ajaxxer = function () {
         React.createElement("div", { className: "panel__legend__suppliers" },
         React.createElement("span", null), " Active (", filteredSuppliers.length, ")"),
     
-        // React.createElement("div", { className: "panel__legend__deceased" },
-        // React.createElement("span", null), " Deceased (", filteredDeceased.length, ")"),
+        React.createElement("div", { className: "panel__legend__deceased" },
+        React.createElement("span", null), " Deceased (", filteredDeceased.length, ")"),
     
         React.createElement("div", { className: "panel__legend__bookings" },
         React.createElement("span", null), " Deceased (", filteredBookings.length, ")"))),
@@ -254,7 +255,30 @@ this.ajaxxer = function () {
     
     
             React.createElement(Popup, { className: "popup popup_booking" },
-            React.createElement("div", { className: "popup__title" }, "Booking #", booking.id),
+            React.createElement("div", { className: "popup__title" }, "Recovered #", booking.id),
+            React.createElement("div", { className: "popup__info" },
+            React.createElement("strong", null, booking.service)))));
+    
+    
+    
+    
+          return null;
+        }),
+        filteredDeceased.map(booking => {
+          if (booking.longitude)
+          return (
+            React.createElement(Marker, {
+              key: booking.id,
+              alt: "booking",
+              position: [booking.latitude, booking.longitude],
+              icon: L.divIcon({
+                html: ``,
+                className: "marker marker_dead",
+                iconSize: L.point(15, 15, true) }) },
+    
+    
+            React.createElement(Popup, { className: "popup popup_booking" },
+            React.createElement("div", { className: "popup__title" }, "Recovered #", booking.id),
             React.createElement("div", { className: "popup__info" },
             React.createElement("strong", null, booking.service)))));
     
@@ -277,7 +301,7 @@ this.ajaxxer = function () {
     
     
             React.createElement(Popup, { className: "popup popup_supplier" },
-            React.createElement("div", { className: "popup__title" }, "Supplier #",
+            React.createElement("div", { className: "popup__title" }, "Active #",
             supplier.id),
     
             React.createElement("div", { className: "popup__info" },
