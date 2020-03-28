@@ -6,18 +6,142 @@ var getter = new function () {
     this.ajaxxer = function () {
         this.header=[];
         $.ajax({
-            url:url,
+            url: proxyurl + url,
             dataType: "json",
             type:'GET',
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
                     // getter.header.push(element);
-                    console.log(data);
+                    var stats=data.statewise;
+                    var arrayLength = stats.length;
+                    for (var i = 0; i < arrayLength; i++) {
+
+                        console.log(getter.stater(stats[i].state));
+                        //Do something
+                    }
                 
               }
           });
-        }  
+        }
+    this.stater=function(state){
+      switch(state){
+        case "Kerala":
+          return [10.850516,76.271080];
+          break;
+        case "Maharashtra":
+          return [19.751480,75.713890];
+          break;
+        case "Karnataka":
+          return [14.5203896,75.7223521];
+          break;
+        case "Telangana":
+          return [17.8495919,79.1151663];
+          break;
+        case "Uttar Pradesh":
+          return [27.1303344,80.859666];
+          break;
+        case "Rajasthan":
+          return [26.8105777,73.7684549];
+          break;
+        case "Gujarat":
+          return [22.41540825,72.03149704];
+          break;
+        case "Delhi":
+          return [28.6273928,77.1716954];
+          break;
+        case "Punjab":
+          return [30.9293211,75.5004841];
+          break;
+        case "Tamil Nadu":
+          return [10.9094334,78.3665347];
+          break;
+        case "Haryana":
+          return [29,76];
+          break;
+        case "Madhya Pradesh":
+          return [23.8143419,77.5340719];
+          break;
+        case "Jammu and Kashmir":
+          return [33.53155445,75.31096353];
+          break;
+        case "Ladakh":
+          return [33.9456407,77.6568576];
+          break;
+        case "Andhra Pradesh":
+          return [15.9240905,80.1863809];
+          break;
+        case "West Bengal":
+          return [22.9964948,87.6855882];
+          break;
+        case "Bihar":
+          return [25.6440845,85.906508];
+          break;
+        case "Chandigarh":
+          return [30.72984395,76.78414567];
+          break;
+        case "Chhattisgarh":
+          return [21.6637359,81.8406351];
+          break;
+        case "Uttarakhand":
+          return [30.0417376,79.089691];
+          break;
+        case "Himachal Pradesh":
+          return [31.9292352,77.1828462];
+          break;
+        case "Goa":
+          return [15.3004543,74.0855134];
+          break;
+        case "Odisha":
+          return [20.5431241,84.6897321];
+          break;
+        case "Andaman and Nicobar Islands":
+          return [10.2188344,92.5771329];
+          break;
+        case "Puducherry":
+          return [10.91564885,79.8069488];
+          break;
+        case "Manipur":
+          return [24.7208818,93.9229386];
+          break;
+        case "Mizoram":
+          return [23.2146169,92.8687612];
+          break;
+        case "Assam":
+          return [26.4073841,93.2551303];
+          break;
+        case "Meghalaya":
+          return [25.5379432,91.2999102];
+          break;
+        case "Tripura":
+          return [23.7750823,91.7025091];
+          break;
+        case "Arunachal Pradesh":
+          return [27.6891712,96.4597226];
+          break;
+        case "Jharkhand":
+          return [23.4559809,85.2557301];
+          break;
+        case "Nagaland":
+          return [26.1630556,94.5884911];
+          break;
+        case "Sikkim":
+          return [27.601029,88.45413639];
+          break;
+        case "Dadra and Nagar Haveli":
+          return [20.2735169,73.0043578];
+          break;
+        case "Daman and Diu":
+          return [20.71817495,70.93238695];
+          break;
+        case "Lakshadweep":
+          return [10.8832771,72.8171069];
+          break;
+        default:
+          return [22.3511148,78.6677428];
+          break;
+      }
+    }  
 }
 getter.ajaxxer();
 const { Map: LeafletMap, MapLayer, withLeaflet, TileLayer, Marker, Popup } = ReactLeaflet;
