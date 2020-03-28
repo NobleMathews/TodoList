@@ -99,13 +99,13 @@ this.ajaxxer = function () {
     
     };
     
-    // const initialState = {
-    //   "Kerala": true,
-    //   "Service 2": true,
-    //   "Service 3": true,
-    //   "Service 4": true,
-    //   "Service 5": true,
-    //   "Service 6": true };
+    const initialState = {
+      "Kerala": true,
+      "Service 2": true,
+      "Service 3": true,
+      "Service 4": true,
+      "Service 5": true,
+      "Service 6": true };
     
     function reducer(state, action) {
       console.log(state,action);
