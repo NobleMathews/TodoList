@@ -288,7 +288,7 @@ this.ajaxxer = function () {
     
           return null;
         })))),
-        dispatch({ type: 2, value: e.target.checked })
+        dispatch({ type: 2, value: null })
     
     ));
     
