@@ -99,30 +99,33 @@ this.ajaxxer = function () {
     
     };
     
-    const initialState = {
-      "Kerala": true,
-      "Service 2": true,
-      "Service 3": true,
-      "Service 4": true,
-      "Service 5": true,
-      "Service 6": true };
+    // const initialState = {
+    //   "Kerala": true,
+    //   "Service 2": true,
+    //   "Service 3": true,
+    //   "Service 4": true,
+    //   "Service 5": true,
+    //   "Service 6": true };
     
-    function reducer(state, action) {
-      console.log(state,action);
-      return Object.assign({}, state, {
-        [`Service ${action.type}`]: action.value });
+    // function reducer(state, action) {
+    //   console.log(state,action);
+    //   return Object.assign({}, state, {
+    //     [`Service ${action.type}`]: action.value });
     
-    }
+    // }
     let mapRef;
     function App() {
-      const [state, dispatch] = React.useReducer(reducer, initialState);
+      // const [state, dispatch] = React.useReducer(reducer, initialState);
+      
       const indiaExtent = [
       [36.942157, 64.855667],
       [7.843725, 98.254375]];
     
-      const filteredBookings = dead.filter(booking => state[booking.service]);
-      const filteredSuppliers = active.filter(
-      supplier => state[supplier.service]);
+      // const filteredBookings = dead.filter(booking => state[booking.service]);
+      // const filteredSuppliers = active.filter(
+      // supplier => state[supplier.service]);
+      const filteredBookings = dead;
+      const filteredSuppliers = active;
     
       return (
         React.createElement("div", { className: "panel" },
