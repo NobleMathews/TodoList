@@ -77,10 +77,10 @@ this.ajaxxer = function () {
     
     
     const createClusterCustomIcon = function (cluster) {
-      const reducer = (total, current) =>
+      var reducer = (total, current) =>
       current.options.alt === "supplier" ? total + 1 : total;
       const supplier = cluster.getAllChildMarkers().reduce(reducer, 0);
-      const reducer = (total, current) =>
+      reducer = (total, current) =>
       current.options.alt === "deceased" ? total + 1 : total;
       const deceased = cluster.getAllChildMarkers().reduce(reducer, 0);
       const total = cluster.getChildCount();
