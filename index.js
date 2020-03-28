@@ -142,7 +142,7 @@ this.ajaxxer = function () {
         React.createElement("span", null),
     
         React.createElement("label", null,
-        React.createElement("strong", null, "Click to Reload Data"),
+        React.createElement("strong", null, "Click on me to load Data"),
         React.createElement("input", {
           type: "checkbox",
           checked: state["Click on me to load Data"],
