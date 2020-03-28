@@ -6,7 +6,7 @@ var getter = new function () {
     this.ajaxxer = function () {
         this.header=[];
         $.ajax({
-            url: proxyurl + url,
+            url:url,
             dataType: "json",
             type:'GET',
             crossDomain:true,
