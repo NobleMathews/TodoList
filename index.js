@@ -78,14 +78,14 @@ this.ajaxxer = function () {
     
     const createClusterCustomIcon = function (cluster) {
       var reducer = (total, current) =>
-      current.options.alt === "supplier" ? total + 1 : total;
-      const supplier = cluster.getAllChildMarkers().reduce(reducer, 0);
+      current.options.alt === "active" ? total + 1 : total;
+      const active = cluster.getAllChildMarkers().reduce(reducer, 0);
       reducer = (total, current) =>
       current.options.alt === "deceased" ? total + 1 : total;
       const deceased = cluster.getAllChildMarkers().reduce(reducer, 0);
       const total = cluster.getChildCount();
-      let supplierPercent = Math.ceil(supplier / total * -100) + "s";
-      if (supplierPercent === "-100s") supplierPercent = "-99.99s";
+      let activePercent = Math.ceil(active / total * -100) + "s";
+      if (activePercent === "-100s") activePercent = "-99.99s";
       let iconSize;
       if (total < 10) {
         iconSize = 15;
@@ -95,20 +95,15 @@ this.ajaxxer = function () {
         iconSize = 30;
       }
       return L.divIcon({
-        html: `<div title="Active: ${supplier}, Recovered: ${total -
-        supplier-deceased}, Deceased: ${deceased}" class="marker_cluster" style="animation-delay: ${supplierPercent}"><span>${total}</span><div>`,
+        html: `<div title="Active: ${active}, Recovered: ${total -
+        active-deceased}, Deceased: ${deceased}" class="marker_cluster" style="animation-delay: ${activePercent}"><span>${total}</span><div>`,
         className: "marker_cluster_wrapper",
         iconSize: L.point(iconSize, iconSize, true) });
     
     };
     
     const initialState = {
-      "Kerala": true,
-      "Service 2": true,
-      "Service 3": true,
-      "Service 4": true,
-      "Service 5": true,
-      "Service 6": true };
+      "Kerala": true};
     
     function reducer(state, action) {
       console.log(state,action);
@@ -123,12 +118,9 @@ this.ajaxxer = function () {
       const indiaExtent = [
       [36.942157, 64.855667],
       [7.843725, 98.254375]];
-    
-      // const filteredBookings = dead.filter(booking => state[booking.service]);
-      // const filteredSuppliers = active.filter(
-      // supplier => state[supplier.service]);
-      const filteredBookings = recover;
-      const filteredSuppliers = active;
+
+      const filteredRecs = recover;
+      const filteredActives = active;
       const filteredDeceased = dead;
     
       return (
@@ -136,10 +128,6 @@ this.ajaxxer = function () {
         React.createElement("div", { className: "panel__header" },
         React.createElement("h1", null, "COVID: India tracker"),
         React.createElement("p", null, "Visualise the current state of the pandemic")),
-    
-    
-    
-    
         React.createElement("div", { className: "panel__map" },
         React.createElement("button", {
           onClick: () =>
@@ -152,13 +140,6 @@ this.ajaxxer = function () {
         React.createElement("div", { className: "sidebar" },
         React.createElement("h3", null, "Options Panel"),
         React.createElement("div", { className: "panel__data" },
-        // React.createElement("label", null,
-        // React.createElement("strong", null, "Service 1"),
-        // React.createElement("input", {
-        //   type: "checkbox",
-        //   checked: state["Service 1"],
-        //   onChange: e => dispatch({ type: 1, value: e.target.checked }) }),
-    
         React.createElement("span", null),
     
         React.createElement("label", null,
@@ -166,58 +147,20 @@ this.ajaxxer = function () {
         React.createElement("input", {
           type: "checkbox",
           checked: state["Click to Reload Data"],
-          onChange: e => dispatch({ type: 2, value: e.target.checked }) }) ),
-    
-        // React.createElement("span", null)),
-    
-        // React.createElement("label", null,
-        // React.createElement("strong", null, "Service 3"),
-        // React.createElement("input", {
-        //   type: "checkbox",
-        //   checked: state["Service 3"],
-        //   onChange: e => dispatch({ type: 3, value: e.target.checked }) }),
-    
-        // React.createElement("span", null)),
-    
-        // React.createElement("label", null,
-        // React.createElement("strong", null, "Service 4"),
-        // React.createElement("input", {
-        //   type: "checkbox",
-        //   checked: state["Service 4"],
-        //   onChange: e => dispatch({ type: 4, value: e.target.checked }) }),
-    
-        // React.createElement("span", null)),
-    
-        // React.createElement("label", null,
-        // React.createElement("strong", null, "Service 5"),
-        // React.createElement("input", {
-        //   type: "checkbox",
-        //   checked: state["Service 5"],
-        //   onChange: e => dispatch({ type: 5, value: e.target.checked }) }),
-    
-        // React.createElement("span", null)),
-    
-        // React.createElement("label", null,
-        // React.createElement("strong", null, "Service 6"),
-        // React.createElement("input", {
-        //   type: "checkbox",
-        //   checked: state["Service 6"],
-        //   onChange: e => dispatch({ type: 6, value: e.target.checked }) }),
-    
-        // React.createElement("span", null))
+          onChange: e => dispatch({ type: 1, value: e.target.checked }) }) ),
         ),
     
     
         React.createElement("h3", null, "Legend"),
         React.createElement("div", { className: "panel__legend" },
-        React.createElement("div", { className: "panel__legend__suppliers" },
-        React.createElement("span", null), " Active (", filteredSuppliers.length, ")"),
+        React.createElement("div", { className: "panel__legend__actives" },
+        React.createElement("span", null), " Active (", filteredActives.length, ")"),
     
         React.createElement("div", { className: "panel__legend__deceased" },
         React.createElement("span", null), " Deceased (", filteredDeceased.length, ")"),
     
-        React.createElement("div", { className: "panel__legend__bookings" },
-        React.createElement("span", null), " Recovered (", filteredBookings.length, ")"))),
+        React.createElement("div", { className: "panel__legend__recs" },
+        React.createElement("span", null), " Recovered (", filteredRecs.length, ")"))),
     
     
     
@@ -244,71 +187,71 @@ this.ajaxxer = function () {
           showCoverageOnHover: false,
           iconCreateFunction: createClusterCustomIcon },
     
-        filteredBookings.map(booking => {
-          if (booking.longitude)
+        filteredRecs.map(rec => {
+          if (rec.longitude)
           return (
             React.createElement(Marker, {
-              key: booking.id,
-              alt: "booking",
-              position: [booking.latitude, booking.longitude],
+              key: rec.id,
+              alt: "rec",
+              position: [rec.latitude, rec.longitude],
               icon: L.divIcon({
                 html: ``,
-                className: "marker marker_booking",
+                className: "marker marker_rec",
                 iconSize: L.point(15, 15, true) }) },
     
     
-            React.createElement(Popup, { className: "popup popup_booking" },
-            React.createElement("div", { className: "popup__title" }, "Recovered #", booking.id),
+            React.createElement(Popup, { className: "popup popup_rec" },
+            React.createElement("div", { className: "popup__title" }, "Recovered #", rec.id),
             React.createElement("div", { className: "popup__info" },
-            React.createElement("strong", null, booking.service)))));
+            React.createElement("strong", null, rec.service)))));
     
     
     
     
           return null;
         }),
-        filteredDeceased.map(booking => {
-          if (booking.longitude)
+        filteredDeceased.map(rec => {
+          if (rec.longitude)
           return (
             React.createElement(Marker, {
-              key: booking.id,
+              key: rec.id,
               alt: "deceased",
-              position: [booking.latitude, booking.longitude],
+              position: [rec.latitude, rec.longitude],
               icon: L.divIcon({
                 html: ``,
                 className: "marker marker_dead",
                 iconSize: L.point(15, 15, true) }) },
     
     
-            React.createElement(Popup, { className: "popup popup_booking" },
-            React.createElement("div", { className: "popup__title" }, "Deceased #", booking.id),
+            React.createElement(Popup, { className: "popup popup_rec" },
+            React.createElement("div", { className: "popup__title" }, "Deceased #", rec.id),
             React.createElement("div", { className: "popup__info" },
-            React.createElement("strong", null, booking.service)))));
+            React.createElement("strong", null, rec.service)))));
     
     
     
     
           return null;
         }),
-        filteredSuppliers.map(supplier => {
-          if (supplier.longitude)
+        filteredActives.map(active => {
+          if (active.longitude)
           return (
             React.createElement(Marker, {
-              key: `supplier-${supplier.id}`,
-              alt: "supplier",
-              position: [supplier.latitude, supplier.longitude],
+              key: `active-${active.id}`,
+              alt: "active",
+              position: [active.latitude, active.longitude],
               icon: L.divIcon({
                 html: "",
-                className: `marker marker_supplier`,
+                className: `marker marker_active`,
                 iconSize: L.point(15, 15, true) }) },
     
     
-            React.createElement(Popup, { className: "popup popup_supplier" },
+            React.createElement(Popup, { className: "popup popup_active" },
             React.createElement("div", { className: "popup__title" }, "Active #",
-            supplier.id),
+            active.id),
     
             React.createElement("div", { className: "popup__info" },
-            React.createElement("strong", null, supplier.service)))));
+            React.createElement("strong", null, active.service)))));
     
     
     
