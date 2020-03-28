@@ -161,7 +161,8 @@ var getter = new function () {
           return [22.3511148,78.6677428];
           break;
       }
-    }  
+    } 
+    App(); 
 }
 getter.ajaxxer();
 const { Map: LeafletMap, MapLayer, withLeaflet, TileLayer, Marker, Popup } = ReactLeaflet;
