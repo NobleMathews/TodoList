@@ -99,23 +99,23 @@ this.ajaxxer = function () {
     
     };
     
-    // const initialState = {
-    //   "Kerala": true,
-    //   "Service 2": true,
-    //   "Service 3": true,
-    //   "Service 4": true,
-    //   "Service 5": true,
-    //   "Service 6": true };
+    const initialState = {
+      "Kerala": true,
+      "Service 2": true,
+      "Service 3": true,
+      "Service 4": true,
+      "Service 5": true,
+      "Service 6": true };
     
-    // function reducer(state, action) {
-    //   console.log(state,action);
-    //   return Object.assign({}, state, {
-    //     [`Service ${action.type}`]: action.value });
+    function reducer(state, action) {
+      console.log(state,action);
+      return Object.assign({}, state, {
+        [`Service ${action.type}`]: action.value });
     
-    // }
+    }
     let mapRef;
     function App() {
-      // const [state, dispatch] = React.useReducer(reducer, initialState);
+      const [state, dispatch] = React.useReducer(reducer, initialState);
       
       const indiaExtent = [
       [36.942157, 64.855667],
@@ -155,14 +155,14 @@ this.ajaxxer = function () {
         //   checked: state["Service 1"],
         //   onChange: e => dispatch({ type: 1, value: e.target.checked }) }),
     
-        // React.createElement("span", null)),
+        React.createElement("span", null)),
     
-        // React.createElement("label", null,
-        // React.createElement("strong", null, "Service 2"),
-        // React.createElement("input", {
-        //   type: "checkbox",
-        //   checked: state["Service 2"],
-        //   onChange: e => dispatch({ type: 2, value: e.target.checked }) }),
+        React.createElement("label", null,
+        React.createElement("strong", null, "Service 2"),
+        React.createElement("input", {
+          type: "checkbox",
+          checked: state["Service 2"],
+          onChange: e => dispatch({ type: 2, value: e.target.checked }) }),
     
         // React.createElement("span", null)),
     
