@@ -106,7 +106,6 @@ this.ajaxxer = function () {
       "Kerala": true};
     
     function reducer(state, action) {
-      console.log(state,action);
       return Object.assign({}, state, {
         [`Service ${action.type}`]: action.value });
     
@@ -146,7 +145,7 @@ this.ajaxxer = function () {
         React.createElement("strong", null, "Click to Reload Data"),
         React.createElement("input", {
           type: "checkbox",
-          checked: state["Click to Reload Data"],
+          checked: state["Click on me to load Data"],
           onChange: e => dispatch({ type: 1, value: e.target.checked }) }) ),
         ),
     
