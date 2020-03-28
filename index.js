@@ -302,6 +302,7 @@ this.ajaxxer = function () {
     
     const rootElement = document.getElementById("root");
     ReactDOM.render(React.createElement(App, null), rootElement);
+    dispatch({ type: 2, value: e.target.checked });
 
   }
 this.stater=function(state){
