@@ -1,4 +1,7 @@
 const { Map: LeafletMap, MapLayer, withLeaflet, TileLayer, Marker, Popup } = ReactLeaflet;
+var active=[];
+var recover=[];
+var dead=[];
 
 class ClusterGroup extends MapLayer {
   createLeafletElement({ children, leaflet: { map }, ...props }) {
@@ -73,8 +76,8 @@ function App() {
   [36.942157, 64.855667],
   [7.843725, 98.254375]];
 
-  const filteredBookings = bookings.filter(booking => state[booking.service]);
-  const filteredSuppliers = suppliers.filter(
+  const filteredBookings = dead.filter(booking => state[booking.service]);
+  const filteredSuppliers = active.filter(
   supplier => state[supplier.service]);
 
   return (
@@ -253,9 +256,7 @@ const rootElement = document.getElementById("root");
 ReactDOM.render(React.createElement(App, null), rootElement);
 
 var getter = new function () {
-  var active=[];
-  var recover=[];
-  var dead=[];
+
 
 var url ="https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise"  
 const proxyurl = "https://sheltered-tundra-26605.herokuapp.com/";
@@ -293,7 +294,7 @@ this.ajaxxer = function () {
                     recover.push(obj);
                   }
               }
-              console.log(active,recover,dead);
+              // console.log(active,recover,dead);
           
         }
     });
