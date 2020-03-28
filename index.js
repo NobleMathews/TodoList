@@ -18,7 +18,7 @@ var getter = new function () {
             contentType:"application/json",
             success:function (data) {
                     // getter.header.push(element);
-                    console.log(element);
+                    console.log(data);
                 
               }
           });
