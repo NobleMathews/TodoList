@@ -124,8 +124,8 @@ this.ajaxxer = function () {
       const filteredBookings = dead.filter(booking => state[booking.service]);
       const filteredSuppliers = active.filter(
       supplier => state[supplier.service]);
-      const filteredBookings = dead;
-      const filteredSuppliers = active;
+      filteredBookings = dead;
+      filteredSuppliers = active;
     
       return (
         React.createElement("div", { className: "panel" },
