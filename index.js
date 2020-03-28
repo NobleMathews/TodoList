@@ -80,6 +80,9 @@ this.ajaxxer = function () {
       const reducer = (total, current) =>
       current.options.alt === "supplier" ? total + 1 : total;
       const supplier = cluster.getAllChildMarkers().reduce(reducer, 0);
+      const reducer = (total, current) =>
+      current.options.alt === "deceased" ? total + 1 : total;
+      const deceased = cluster.getAllChildMarkers().reduce(reducer, 0);
       const total = cluster.getChildCount();
       let supplierPercent = Math.ceil(supplier / total * -100) + "s";
       if (supplierPercent === "-100s") supplierPercent = "-99.99s";
@@ -92,8 +95,8 @@ this.ajaxxer = function () {
         iconSize = 30;
       }
       return L.divIcon({
-        html: `<div title="Supplier: ${supplier}, Bookings: ${total -
-        supplier}" class="marker_cluster" style="animation-delay: ${supplierPercent}"><span>${total}</span><div>`,
+        html: `<div title="Active: ${supplier}, Recovered: ${total -
+        supplier-deceased}, Deceased: ${deceased}" class="marker_cluster" style="animation-delay: ${supplierPercent}"><span>${total}</span><div>`,
         className: "marker_cluster_wrapper",
         iconSize: L.point(iconSize, iconSize, true) });
     
@@ -269,7 +272,7 @@ this.ajaxxer = function () {
           return (
             React.createElement(Marker, {
               key: booking.id,
-              alt: "booking",
+              alt: "deceased",
               position: [booking.latitude, booking.longitude],
               icon: L.divIcon({
                 html: ``,
@@ -278,7 +281,7 @@ this.ajaxxer = function () {
     
     
             React.createElement(Popup, { className: "popup popup_booking" },
-            React.createElement("div", { className: "popup__title" }, "Recovered #", booking.id),
+            React.createElement("div", { className: "popup__title" }, "Deceased #", booking.id),
             React.createElement("div", { className: "popup__info" },
             React.createElement("strong", null, booking.service)))));
     
