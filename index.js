@@ -121,9 +121,9 @@ this.ajaxxer = function () {
       [36.942157, 64.855667],
       [7.843725, 98.254375]];
     
-      // const filteredBookings = dead.filter(booking => state[booking.service]);
-      // const filteredSuppliers = active.filter(
-      // supplier => state[supplier.service]);
+      const filteredBookings = dead.filter(booking => state[booking.service]);
+      const filteredSuppliers = active.filter(
+      supplier => state[supplier.service]);
       const filteredBookings = dead;
       const filteredSuppliers = active;
     
@@ -288,7 +288,6 @@ this.ajaxxer = function () {
     
           return null;
         })))),
-        dispatch({ type: 2, value: null })
     
     ));
     
