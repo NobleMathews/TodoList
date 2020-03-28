@@ -148,59 +148,60 @@ this.ajaxxer = function () {
         React.createElement("div", { className: "sidebar" },
         React.createElement("h3", null, "List of Services"),
         React.createElement("div", { className: "panel__data" },
-        React.createElement("label", null,
-        React.createElement("strong", null, "Service 1"),
-        React.createElement("input", {
-          type: "checkbox",
-          checked: state["Service 1"],
-          onChange: e => dispatch({ type: 1, value: e.target.checked }) }),
+        // React.createElement("label", null,
+        // React.createElement("strong", null, "Service 1"),
+        // React.createElement("input", {
+        //   type: "checkbox",
+        //   checked: state["Service 1"],
+        //   onChange: e => dispatch({ type: 1, value: e.target.checked }) }),
     
-        React.createElement("span", null)),
+        // React.createElement("span", null)),
     
-        React.createElement("label", null,
-        React.createElement("strong", null, "Service 2"),
-        React.createElement("input", {
-          type: "checkbox",
-          checked: state["Service 2"],
-          onChange: e => dispatch({ type: 2, value: e.target.checked }) }),
+        // React.createElement("label", null,
+        // React.createElement("strong", null, "Service 2"),
+        // React.createElement("input", {
+        //   type: "checkbox",
+        //   checked: state["Service 2"],
+        //   onChange: e => dispatch({ type: 2, value: e.target.checked }) }),
     
-        React.createElement("span", null)),
+        // React.createElement("span", null)),
     
-        React.createElement("label", null,
-        React.createElement("strong", null, "Service 3"),
-        React.createElement("input", {
-          type: "checkbox",
-          checked: state["Service 3"],
-          onChange: e => dispatch({ type: 3, value: e.target.checked }) }),
+        // React.createElement("label", null,
+        // React.createElement("strong", null, "Service 3"),
+        // React.createElement("input", {
+        //   type: "checkbox",
+        //   checked: state["Service 3"],
+        //   onChange: e => dispatch({ type: 3, value: e.target.checked }) }),
     
-        React.createElement("span", null)),
+        // React.createElement("span", null)),
     
-        React.createElement("label", null,
-        React.createElement("strong", null, "Service 4"),
-        React.createElement("input", {
-          type: "checkbox",
-          checked: state["Service 4"],
-          onChange: e => dispatch({ type: 4, value: e.target.checked }) }),
+        // React.createElement("label", null,
+        // React.createElement("strong", null, "Service 4"),
+        // React.createElement("input", {
+        //   type: "checkbox",
+        //   checked: state["Service 4"],
+        //   onChange: e => dispatch({ type: 4, value: e.target.checked }) }),
     
-        React.createElement("span", null)),
+        // React.createElement("span", null)),
     
-        React.createElement("label", null,
-        React.createElement("strong", null, "Service 5"),
-        React.createElement("input", {
-          type: "checkbox",
-          checked: state["Service 5"],
-          onChange: e => dispatch({ type: 5, value: e.target.checked }) }),
+        // React.createElement("label", null,
+        // React.createElement("strong", null, "Service 5"),
+        // React.createElement("input", {
+        //   type: "checkbox",
+        //   checked: state["Service 5"],
+        //   onChange: e => dispatch({ type: 5, value: e.target.checked }) }),
     
-        React.createElement("span", null)),
+        // React.createElement("span", null)),
     
-        React.createElement("label", null,
-        React.createElement("strong", null, "Service 6"),
-        React.createElement("input", {
-          type: "checkbox",
-          checked: state["Service 6"],
-          onChange: e => dispatch({ type: 6, value: e.target.checked }) }),
+        // React.createElement("label", null,
+        // React.createElement("strong", null, "Service 6"),
+        // React.createElement("input", {
+        //   type: "checkbox",
+        //   checked: state["Service 6"],
+        //   onChange: e => dispatch({ type: 6, value: e.target.checked }) }),
     
-        React.createElement("span", null))),
+        // React.createElement("span", null))
+        ),
     
     
         React.createElement("h3", null, "Legend"),
