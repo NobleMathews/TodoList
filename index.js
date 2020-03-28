@@ -12,8 +12,10 @@ var getter = new function () {
             crossDomain:true,
             contentType:"application/json",
             success:function (data) {
+                    console.log(data);
                     // getter.header.push(element);
                     var stats=data.statewise;
+                    console.log(stats);
                     var arrayLength = stats.length;
                     for (var i = 0; i < arrayLength; i++) {
 
