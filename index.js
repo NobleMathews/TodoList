@@ -1,10 +1,16 @@
 var getter = new function () {
+        var active=[];
+        var recover=[];
+        var dead=[];
   
     var url ="https://api.rootnet.in/covid19-in/unofficial/covid19india.org/statewise"  
     const proxyurl = "https://sheltered-tundra-26605.herokuapp.com/";
 
     this.ajaxxer = function () {
-        this.header=[];
+        active=[];
+        recover=[];
+        dead=[];
+        var latt,longt;
         $.ajax({
             url: proxyurl + url,
             dataType: "json",
@@ -17,9 +23,23 @@ var getter = new function () {
                     var arrayLength = stats.length;
                     for (var i = 0; i < arrayLength; i++) {
 
-                        console.log(getter.stater(stats[i].state));
-                        //Do something
+                        [latt,longt]=getter.stater(stats[i].state);
+                        var obj = {};
+                        obj["id"] = i;
+                        obj["latitude"] = latt;
+                        obj["longitude"] = longt;
+                        obj["service"]=stats[i].state;
+                        for(var a=1;a<=stats[i].active;a++){
+                          active.push(obj);
+                        }
+                        for(var d=1;d<=stats[i].deaths;d++){
+                          dead.push(obj);
+                        }
+                        for(var r=1;r<=stats[i].recovered;r++){
+                          recover.push(obj);
+                        }
                     }
+                    console.log(active,recover,dead);
                 
               }
           });
