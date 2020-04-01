@@ -20,7 +20,7 @@ async function app() {
   // Make a prediction through the model on our image.
   // const imgEl = document.getElementById('img');
   const stringy="do you want free real estate ?";
-  const prediction = model.predict([‘you suck’]);
+  const prediction = model.predict(["you suck"]);
   console.log(prediction);
 }
 
