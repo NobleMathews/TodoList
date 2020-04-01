@@ -10,14 +10,6 @@
 //     };
 //   });
 // });
-function tweetToTensor(tweet) {
-  const array = new Uint8Array(20000);
-  for (let i = 0; i < tweet.length && i < array.length; i++) {
-    array[i] = tweet.charCodeAt(i);
-  }
-  console.log(tf.tensor1d(array));
-  return tf.tensor1d(array);
-}
 
 async function app() {
   // Load the model.
@@ -28,9 +20,8 @@ async function app() {
   // Make a prediction through the model on our image.
   // const imgEl = document.getElementById('img');
   const stringy="do you want free real estate ?";
-  const batch = tweetToTensor(stringy).reshape([, 20000]);
-  const prediction = model.predict(batch);
-  console.log(model.predict(prediction));
+  const prediction = model.predict([‘you suck’]);
+  console.log(prediction);
 }
 
 app();
