@@ -27,7 +27,7 @@ async function app() {
   // Make a prediction through the model on our image.
   // const imgEl = document.getElementById('img');
   const stringy="do you want free real estate ?";
-  const batch = tweetToTensor(stringy).reshape([1, 20000]);
+  const batch = tweetToTensor(stringy).reshape([20000,null]);
   const prediction = model.predict(batch);
   console.log(model.predict(prediction));
 }
