@@ -11,10 +11,11 @@
 //   });
 // });
 function tweetToTensor(tweet) {
-  const array = new Uint8Array(20000);
+  const array = new Uint8Array(,20000);
   for (let i = 0; i < tweet.length && i < array.length; i++) {
     array[i] = tweet.charCodeAt(i);
   }
+  console.log(tf.tensor1d(array));
   return tf.tensor1d(array);
 }
 
