@@ -21,8 +21,7 @@ async function app() {
   // Make a prediction through the model on our image.
   // const imgEl = document.getElementById('img');
   const stringy="do you want free real estate ?";
-  const result = await model.classify(stringy);
-  console.log(result);
+  console.log(model.predict(stringy));
 }
 
 app();
