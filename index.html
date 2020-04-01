@@ -1,28 +1,59 @@
 <html>
-  <head>
-    <meta name="viewport" content="user-scalable=no">
-  <title>Pandemic Mapper</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
+<head>
+  <title>InfodemicPeriod</title>
+  <link href='index.css' rel='stylesheet' type='text/css' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
 
-  <link rel="stylesheet" href="index.css">
-   <!-- Make sure you put this AFTER Leaflet's CSS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-leaflet/2.6.0/react-leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
-
-  </head>
 <body>
-    <div id="root"></div>
- <script type="text/javascript" src="index.js"></script>  
+<img  src="images/icon_i_h.png" alt="InfodemicPeriod" class="center selectDisable">
+<div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="Please input entire message recieved ...">
+       <button type="submit" class="searchButton">
+         <i class="fa fa-search"></i>
+      </button>
+    </div>
+ </div>
+
+ <div class="footer">
+  <div class="wrap-collabsible">
+    <input id="collapsible" class="toggle" type="checkbox">
+    <label for="collapsible" class="lbl-toggle" tabindex="0"> ... <strong>No Lies</strong> under these <strong>Beautiful Skies</strong> ... </label>
+    <div class="collapsible-content">
+      <div class="content-inner">
+        <div style="width:200px; height:200px;">
+          <canvas id="ch1" width="200" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div class="form-popup" id="myForm">
+  <form class="form-container">
+    <h4>This message has been flagged red</h4>
+    <img id="sad_im" src="images/bear.gif" height="100" width="100"/>  
+    <p id="why"> Fake news makes teddy sad... </p>
+  </br>
+    <script>
+      function closeForm() {
+        event.preventDefault();
+      document.getElementById("myForm").style.display = "none";
+      } 
+      function disForm() {
+        event.preventDefault();
+        $("#sad_im").attr("src","images/cat.gif");
+        $("#why").text("Spam and irrelevant forwards makes pudding loose her way ...");
+      } 
+    </script>
+    <button class="btn" onclick="disForm()">Proceed</button>
+    <button class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+	<div id="console"></div>
+ <script src="index.js"></script>
 </body>
 </html>
