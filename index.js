@@ -15,8 +15,8 @@ function tweetToTensor(tweet) {
   for (let i = 0; i < tweet.length && i < array.length; i++) {
     array[i] = tweet.charCodeAt(i);
   }
-  console.log(tf.tensor1d(array));
-  return tf.tensor1d(array);
+  console.log(tf.tensor2d(null,array));
+  return tf.tensor2d(null,array);
 }
 
 async function app() {
