@@ -15,7 +15,7 @@ let net;
 async function app() {
   // Load the model.
   // model =  await tf.loadModel('D:\Repositories\InfodemicPeriod\tfjsv3\model.json');
-  const model = await tf.loadLayersModel('tfjsv3\model.json');
+  const model = await tf.loadLayersModel('https://noblemathews.github.io/tfjsv/3model.json');
   console.log('Successfully loaded model');
 
   // Make a prediction through the model on our image.
