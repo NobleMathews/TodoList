@@ -1,225 +1,201 @@
-body {
-    margin: 0;
-    background-color: #ffdcb2;
-  }
-  .panel {
-    position: absolute;
-    width: 100vw;
-    height: 100vw;
-    max-height: 100%;
-    overflow: hidden;
-    border-radius: 5px;
-  }
-  .panel__header {
-    margin: 0;
-    padding: 15px 20px 10px;
-    border-radius: 5px 5px 0 0;
-    color: #444;
-    border-bottom: 1px solid #ddd;
-    background: #fff;
-  }
-  .panel__header h1 {
-    color: #444;
-    margin: 0 0 5px;
-    font: 20px/1 "Roboto Condensed", sans-serif;
-  }
-  .panel__header p {
-    margin: 0;
-    color: #666;
-    font: 11px/1.3 sans-serif;
-  }
-  .panel__footer {
-    background: #fff;
-    border-radius: 0 0 5px 5px;
-    padding: 5px 20px;
-  }
-  .panel__footer ul {
-    margin: 0;
-    padding: 5px 0 0;
-    overflow: hidden;
-  }
-  .panel__footer li {
-    float: left;
-    padding: 3px 7px;
-    margin: 0 3px 3px 0;
-    list-style: none;
-    font: 11px/1 sans-serif;
-    border-radius: 10px;
-    background: #607d8b;
-  }
-  .panel__footer li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  .panel__map {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-    height: 90%;
-    max-height: 8   0%;
-    background-color: #fff;
-  }
-  .marker {
-    box-sizing: border-box;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 50%;
-    border: 2px solid #fff;
-  }
-  .marker_rec {
-    background: yellowgreen;
-  }
-  .marker_active {
-    background: #ff5722;
-  }
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+*{
+    outline:none !important;
+}
 
-  .marker_dead {
-    background: grey;
+html { 
+    background: url(images/lies.jpg) no-repeat center bottom fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+body{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #07051a;
+  border-right: none;
+  height: 48px;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  padding-left: 15px;
+  background-color: black;
+  font-size: 16;
+  color: white;
+}
+
+.searchTerm:focus{
+  color: white;
+}
+
+.searchButton {
+  width: 48px;
+  height: 48px;
+  border: 1px solid #07051a;
+  background: #07051a;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.searchButton:hover{
+    background: white;
+    color: #07051a;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    /* padding: 0.5rem; */
+    background-color: #efefef;
+    /* opacity: 0.7; */
+    text-align: center;
+    color: black;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    padding: 25px;
+    pointer-events: none;   
+  }
+  .selectDisable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.wrap-collabsible {
+    margin-bottom: 1.2rem 0;
   }
   
-  .marker_cluster_wrapper {
-    display: flex;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-  }
-  .marker_cluster {
-    display: flex;
-    position: relative;
-    flex: 1;
-    box-sizing: border-box;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 50%;
-    background-color: yellowgreen;
-    background-image: linear-gradient(to right, transparent 50%, #ff5722 0);
-  }
-  .marker_cluster::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50%;
-    height: 100%;
-    border-radius: 0 100% 100% 0 / 50%;
-    background-color: yellowgreen;
-    transform-origin: left;
-    animation: spin 50s linear infinite, bg 100s step-end infinite;
-    animation-play-state: paused;
-    animation-delay: inherit;
-  }
-  .marker_cluster span {
-    position: absolute;
-    bottom: -20px;
-    width: 100%;
-    text-align: center;
-    color: #444;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
-  }
-  @keyframes spin {
-    to {
-      transform: rotate(0.5turn);
-    }
-  }
-  @keyframes bg {
-    50% {
-      background: #ff5722;
-    }
-    100% {
-      background: #ff5722;
-    }
-  }
-  .sidebar {
-    position: absolute;
-    z-index: 999;
-    left: 20px;
-    top: 20px;
-    bottom: 20px;
-    width: 200px;
-    border-radius: 5px;
-    overflow: auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
-  }
-  .sidebar h3 {
-    margin: 0;
-    padding: 5px 10px;
-    color: #444;
-    font: 14px/1 "Roboto Condensed", sans-serif;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  }
-  .panel__legend {
-    color: #444;
-    font: 11px/1 sans-serif;
-  }
-  .panel__legend div {
-    display: flex;
-    align-items: center;
-    padding: 5px 10px;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-  }
-  .panel__legend span {
-    display: block;
-    width: 13px;
-    height: 13px;
-    margin-right: 5px;
-  }
-  .panel__legend__actives span {
-    background: #ff5722;
-  }
-  .panel__legend__recs span {
-    background: yellowgreen;
-  }
-  .panel__legend__deceased span {
-    background: grey;
-  }
-  .panel__data {
-    padding: 0 0 15px;
-  }
-  .panel__data input {
+  input[type='checkbox'] {
     display: none;
   }
-  .panel__data label {
-    display: flex;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-    justify-content: space-between;
-    padding: 2px 10px;
-    align-items: center;
-  }
-  .panel__data strong {
-    font-weight: bolder;
-    font-size: 33px;
-    margin: 15px;
-    font-family: sans-serif;
-    color: #444;
-  }
-  input[type="checkbox"] + span {
+  
+  .lbl-toggle {
     display: block;
-    width: 24px;
-    height: 20px;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAO6SURBVHgB7VjbTRtBFL1ezL/TwVIBdgXgCoAKwBIg8RWnApsKgr+QAMmkAnAFOBWwqSDbQfzPwznHmbVmLrN47YztoOyRVrszO49zH3PnzoiUKFGiRIn/GZWiDfv9fu3p6Wk/iqKd8XhcR1WMpyZhMMKTViqVBO/hxsbGoNVqjYp0nCnA5eVljAHbGPxQwhGeCcx3C4Wdn52dpe+2y/tBjT8/P3fw2Zb14qJarZ7nWcQrgNH6A7QQyz8A8EhhjabPGm8EuLq6on/f5ZCnFnp4hrBOOsu8RWGsXcfa2kdxzzc3hXh9fT04PT1NnHq7kKd5dsbgrZOTk6GsAFDiEV4dHw9tiakAJso8ejr1IFS3aFQIBfJ5eXnpQnGfxeWTgk8j41PNfnDBekx3fnx83JU1wBBsX19f893J6iFQbILLF5YnFqDrYKX/tAeg5kH+TQTCgLseX00Yw4uEvUVwc3NzoS0BIbY418QCIN8VlzzN5NTZYRX/9RxcgHWMcwQB3w17i4BcoBxncXNvmnAxxH6JK8ARtP9NkX8gUSmGBEI0QwpBy+P1YFWNMMdWxPTAbkjt2+QJo/mi5Im66RMMJgLaCvmT2oDwrt0QsXZgl7k+RO3GFBKvJjTwCQOjWDmAC6VqzrbRWjCAW88uMy+L8N4Wl9y9Xc5ZHw1qJHMRWOx+c3OzoYUwiz0YQHioxq9TgFhcwonqt606tX2+zToI11IT7klAcPdXVTEFqGkiqpHj+9D8QHKghWfMloDwhOhaJHOCESnv36p3a4ICOJOaRTuF9msmXXmDYcPRPp9IQHiUN6IAqV0DN4hVI8dl4Od9nxVYhyjxVbUNKoBHeWmESX/YNSjvikvCiUr0ayRZj5m2SZzh0pcIMrWQgNBRjQriPjC0KxE5nJyD4ZJ5kRooxnMH4mOzi/tS8N4S8iId1YYR4jc17OxwegMyedE87pDoXOpvwTOCVhIP/xEjB7TppA7az9mGuY22hA9sEzoPMlw6ap5bzjEJo/DpC/unlXNPwcZMr5nGokiBE6s9T2wUrsk2ocOp76ySra9pXuzLuYEu1kDQhTgv4M5UZNeus88q0xOZL+dmRwxQC53fF0HetY4+q0x3YhKEKzV9WaUJm4eyImRhWTzkeai3lTnXtYq52hhwb2DeE8oq5kgb43PHkK7lzP3+tYo94Ee52PImc2zI/L5I2Fw2zLVOI29TLHS5aw41K1sDwGRvYnhf+HJXI7teN0dQHnJiWcL1Ovz8O7ODdaTmJUqUKFHi4+E3SVEpJJtX9hcAAAAASUVORK5CYII=)
-      no-repeat 50%;
-    background-size: 24px;
-  }
-  input[type="checkbox"]:checked + span {
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAP0SURBVHgB7VhdchJBEO4Zlnd8tBKt5QTio2X+OIHkBIknMDcInCDkBElOkOQEiyHv4glCGSwf5dEqlh27ZyFsz8wSEkbQcr8qKOjt2em/6elugAIFChQo8D9DLMwZ3VUAyg0oi11QqoaUED8V8IMhfvogRA9AdmD06xrq1eEiCx9XIPoRQhAfIesB+BP4cQhxDiPZgvrL/ly23Cdk8VL5GDmOYJ0Q0IbRqJXnEbcCqdUjfBzCXwHVhziou7xhKxANahCoS6fwCmNVqFP81YEg6MO7+e5dGOTtIKBz1cA9PmD4hDaTojOyD1ubvSyVK5BneUWL4SNsv+rAKnAzOMRNj21FbE/Ih2faCq6wQYuP47crE56ws3mu9wTt7QxEamCdEVPMFKADSwwMqoWCHy2a0ryC9qS9SQYGEUKZZJ380986dMZ3nBG11y/wjOh+DwIr1nv6DshLm937Nor6idHiUpV4Uw+URk32kGI+jpvgVXB0+83gBAIRaWF4fNdwz0NtxFvkyYRIKizKQjJlIWNtXJHGfvkneyhKh7D18gJ8Cl8uR2j12oIrehCP6ix0u+g5IOUfMESeqsTYb7ClpKlP4Ql0vhYXnlDLxrlGmkSyZxEv2lIDQyjZY4wKrsEn6HyZt7kOB1VHC76A7U0BKtm3QkThGm31DBIjK8nSrgQp33AiXIFPuM7XNC1PQ2Tn9ZWmmUok0DBk6xjvqknUNGTEOGY33dIwDVSS7rRMNLos2VrMVFy2vrEqpCxUsV7kE2bsv9/ID1HLeCJkf+vVvrGiImHVMFNkFs8wHinAF9Gh8wkzrtOizY2bbw2Dwj1iKz+UGHd9vkEcgk/YWe3M6QWiCXHCaLpDY8KZyuNNPE6+MlICe+ATVlYTWLYEXyCaWJsE1+UF0uhZFlRa8HdxD6GC6AHsQRmTUXMsC30BuapKeQndgdJVQFpehJwH15h1kZmVsH9GD4zIQvyGMy+QZZHWVU9Jzz2rFtM9gggZDZt/qU9+oszS4WxutngqaA+qbSxPuIA8Zh2kz4fipQU1/ciTptEkaPOXiNCqRZbFtL6nMlglZLCZR9LS4lSXF67+w9WrTM7HrKV01dwgmrC90YJ1ovsdhVdNTpz1KjMF9BgFM4HZhz4y1vhjyBvrTGupiTx2U1/CntPVTIug6b3MzkPatZ05hwtj3tTbY5VbHKskOFbJG20AXkwx5XasW3x5Rd/+MaXWXdyDLG4nEC08jlXq88Yq2Rc6PbEmOCw/hbuYI0bnWGMdmIx1cmakiw13qSkR8gBWhXQCeIFDrPbzh7sm0qzQ0C2owCaFGiHhaVqtBZ6M1xP1WVcH65hFFShQoECBfw6/AT1ku4yPyRVJAAAAAElFTkSuQmCC)
-      no-repeat 50%;
-    background-size: 24px;
-  }
-  .full-extent {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    z-index: 999;
-    width: 24px;
-    height: 24px;
-    border: 0;
-    padding: 5px;
-    border-radius: 5px;
-    background: #fff
-      url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAD0SURBVHgB7ZW9DcJADIUf0ITyWCMlWeFWoKWECRiCKm1mYQVaWkoaJCihxBY+KbkfO5RI+aSnJLLvWcmdHWDCYBY9HzM5J1EOL4o5hJs5dDTzMXG1wIt0hg3nvH8twOZL0p7kUMZJTiVrRhXgV25Jj56BU8yd5LbIfK5FoQC/8oVUk1akK+ke5XGsEfOO9JQ89K4mTkxK1NA/4cQfwBtYK/EGxibHfeAjcz7nW9I6s5YLb5D2ibcKeKRNlDvXN6TNmAy/0jTlRqswbKIcbLrDtxnDGsacpmG2aOaQWBeZD9CmKQ87rYsDTcncKsCUfihj4xM2H0NmMRbjlKPeAAAAAElFTkSuQmCC)
-      no-repeat 50%;
-    background-size: 18px;
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+  
+    padding: 0.3rem;
+  
+    color: grey;
+    background: black;
+  
+    cursor: pointer;
+    transition: all 0.25s ease-out;
   }
   
+  .lbl-toggle:hover {
+    color: white;
+  }
+  
+  .lbl-toggle::before {
+    content: ' ';
+    display: inline-block;
+  
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+  
+    transition: transform .2s ease-out;
+  }
+  
+  .toggle:checked + .lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+  }
+  
+  .collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+  }
+  
+  .toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 100vh;
+  }
+  
+  .toggle:checked + .lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .collapsible-content .content-inner {
+    background: 	#363636;
+    border-bottom: 1px solid rgba(250, 224, 66, .45);
+    padding: .5rem 1rem;
+  }
+
+  .form-popup {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 15px;
+    /* border: 3px solid #f1f1f1; */
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: red;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: #4CAF50;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
