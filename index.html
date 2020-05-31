@@ -1,59 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>InfodemicPeriod</title>
-  <link href='index.css' rel='stylesheet' type='text/css' />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js" crossorigin="anonymous"></script>
-  <script type="text/javascript"> (function() { var css = document.createElement('link'); css.href = 'https://use.fontawesome.com/releases/v5.1.0/css/all.css'; css.rel = 'stylesheet'; css.type = 'text/css'; document.getElementsByTagName('head')[0].appendChild(css); })(); </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
-
+    <meta charset="utf-8">
+    <title>TechWebsiteAssignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href='css/index.css' rel='stylesheet' type='text/css'>
+    <img id="sike" src="https://www.meme-arsenal.com/memes/6101e9496ec2f847d97b9c59d6298b95.jpg" style="height:165px;width:220px;position:fixed;right:auto;left:auto;left: 50%;transform:translateX(-50%);" ></img>
+</head>
 <body>
-<img  src="images/icon_i_h.png" alt="InfodemicPeriod" class="center selectDisable">
-<div class="wrap">
-    <div class="search">
-       <input type="text" class="searchTerm" placeholder="Please input entire message recieved ...">
-       <button type="submit" class="searchButton">
-         <i class="fa fa-search"></i>
-      </button>
-    </div>
- </div>
 
- <div class="footer">
-  <div class="wrap-collabsible">
-    <input id="collapsible" class="toggle" type="checkbox">
-    <label for="collapsible" class="lbl-toggle" tabindex="0"> ... <strong>No Lies</strong> under these <strong>Beautiful Skies</strong> ... </label>
-    <div class="collapsible-content">
-      <div class="content-inner">
-        <div style="width:200px; height:200px;">
-          <canvas id="ch1" width="200" height="200"></canvas>
-        </div>
-      </div>
-    </div>
+    <div class="centerv">
+    <h5>Get your tasks magically finished by clicking ze button</h5>
+    <h6>(Trust me it works cus this portal is magical)</h6>
+    </br>
+    <div id="root"></div>
   </div>
- </div>
- <div class="form-popup" id="myForm">
-  <form class="form-container">
-    <h4>This message has been flagged red</h4>
-    <img id="sad_im" src="images/bear.gif" height="100" width="100"/>  
-    <p id="why"> Fake news makes teddy sad... </p>
-  </br>
-    <script>
-      function closeForm() {
-        event.preventDefault();
-      document.getElementById("myForm").style.display = "none";
-      } 
-      function disForm() {
-        event.preventDefault();
-        $("#sad_im").attr("src","images/cat.gif");
-        $("#why").text("Spam and irrelevant forwards makes pudding loose her way ...");
-      } 
-    </script>
-    <button class="btn" onclick="disForm()">Proceed</button>
-    <button class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
-</div>
-	<div id="console"></div>
- <script src="index.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js'></script>
+    <script src='js/index.js'></script>
 </body>
 </html>
